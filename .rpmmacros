@@ -1,0 +1,17 @@
+# Path to build environment
+%_topdir      %(echo $HOME)/rpmbuild
+
+# Path for temporary files
+%_tmppath     %(echo $HOME)/rpmbuild/tmp
+
+# Number of make can start (num_cores + 1)
+%_smp_mflags  -j9
+
+# The %__arch_install_post macro contains various checks that
+# should be run on the files in the BUILDROOT location.
+# Must be turned off for certain builds.
+%__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
+
+# GPG key to use for package signing
+#%_signature         %gpg
+#%_gpg_name          41FBCD05
