@@ -1,0 +1,24 @@
+diff -rupN orig/check_mounted_disks.pl patch/check_mounted_disks.pl
+--- orig/check_mounted_disks.pl	2012-09-14 13:34:00.345031934 +0200
++++ patch/check_mounted_disks.pl	2012-09-14 12:21:07.000000000 +0200
+@@ -34,7 +34,7 @@ open( my $fstab_fh, $fstab)
+   || die "Failed to open $fstab: $!";
+ 
+ while ( <$fstab_fh> ) {
+-  next unless m!(^/dev/)|(^LABEL)!;
++  next unless m!(^/dev/)|(^LABEL)|(^UUID)!;
+   my ($device, $mount_point) = (split(/\s+/, $_))[0,1];
+   next unless $mount_point =~ m!/!; # drop swap partitions
+   next if $device =~ m!(^/dev/cdrom)|(^/dev/fd\d+)!;
+@@ -45,6 +45,11 @@ while ( <$fstab_fh> ) {
+     next;
+   }
+ 
++  # Replace uuids with dev
++  if ($device =~ s/^UUID=//) {
++    $device = `blkid -U $device`;
++  }
++
+   $fstab_disks{$mount_point} = $device;
+ }
+ 
