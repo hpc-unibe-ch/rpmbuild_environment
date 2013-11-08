@@ -6,3 +6,6 @@ BUILDROOT/*
 RPMS/*
 SRPMS/*
 tmp/*
+
+# ignore sources that are big and therefore hosted in /gpfs/software/packages/*
+SOURCES/NAMD_*
