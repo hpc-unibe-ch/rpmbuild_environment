@@ -5,7 +5,7 @@
 %_tmppath     %(echo $HOME)/rpmbuild/tmp
 
 # Number of make can start (num_cores + 1)
-%_smp_mflags  -j9
+%_smp_mflags  -j16
 
 # The %__arch_install_post macro contains various checks that
 # should be run on the files in the BUILDROOT location.
