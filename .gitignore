@@ -9,3 +9,4 @@ tmp/*
 
 # ignore sources that are big and therefore hosted in /gpfs/software/packages/*
 SOURCES/NAMD_*
+SOURCES/wrf-utilities*
