@@ -12,6 +12,5 @@
 # Must be turned off for certain builds.
 %__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
 
-# GPG key to use for package signing
-#%_signature         %gpg
-#%_gpg_name          41FBCD05
+# Package signing is done by user root
+# on the mirror server aka gridadmin01x
