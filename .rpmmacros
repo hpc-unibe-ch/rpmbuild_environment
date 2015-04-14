@@ -1,6 +1,9 @@
 # Path to build environment
 %_topdir      %(echo $HOME)/rpmbuild
 
+# Define source dir to be package name based
+%_sourcedir    %{_topdir}/SOURCES/%{name}
+
 # Path for temporary files
 %_tmppath     %(echo $HOME)/rpmbuild/tmp
 
