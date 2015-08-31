@@ -1,5 +1,5 @@
 Name:	nagios-plugin-check-gpfs
-Version:	1.0.1-1
+Version:	1.0.1
 Release:	1%{?dist}
 Summary:	check gpfs mount
 Group:		Application
