@@ -1,5 +1,5 @@
 Name:	nagios-plugin-check-gpfs
-Version:	1
+Version:	1.0.1-1
 Release:	1%{?dist}
 Summary:	check gpfs mount
 Group:		Application
@@ -30,5 +30,8 @@ rm -rf %{buildroot}
 /usr/lib64/nagios/plugins/check_gpfs
 
 %changelog
-* Fri Jun 13 2014 Nina Mujkanovic <nina.mujkanovic@id.unibe.ch> - 1
+* Mon Aug 31 2015 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 1.0.1
+- Removed debug output from task fill
+
+* Fri Jun 13 2014 Nina Mujkanovic <nina.mujkanovic@id.unibe.ch> - 1.0
 - Initial implementation
