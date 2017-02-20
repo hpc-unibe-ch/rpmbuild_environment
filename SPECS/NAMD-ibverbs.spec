@@ -7,7 +7,7 @@
 
 Name:		NAMD-ibverbs
 Version:	2.9	
-Release:	3
+Release:	4
 Summary:	scientific app for simulation of biomolecular systems
 Group:		Application/Scientific 
 License:	University of Illinois
