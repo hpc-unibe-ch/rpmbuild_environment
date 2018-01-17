@@ -1,8 +1,7 @@
 %define name ldaptool
 %define version 0.1
 %define unmangled_version 0.1
-%define unmangled_version 0.1
-%define release 1
+%define release 2
 
 Summary: Tool for manipulating LDAP databases
 Name: %{name}
@@ -37,6 +36,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Tue Oct 17 2017 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 0.1-2
+- Rebuild for CentOS 7
+
 * Wed Nov 04 2015 Färber, Nico (ID) <nico.faerber@id.unibe.ch> - 0.1-1
 - Redone for next CentOS reincarnation of UBELIX,
 
