@@ -3,7 +3,7 @@
 
 Name:		shelldap
 Version:	1.3.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Shell-like interface to LDAP servers
 License:	BSD
 URL:		http://projects.martini.nu/shelldap
