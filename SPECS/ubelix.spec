@@ -18,6 +18,7 @@ Requires:  bind-utils
 Requires:  dstat
 Requires:  iotop
 Requires:  kernel-devel
+Requires:  net-tools
 Requires:  openssl-devel
 Requires:  psmisc
 Requires:  vim
@@ -64,6 +65,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Feb 27 2018 Michael Rolli <michael.rolli@id.unibe.ch> 4-1*
+- Add package net-tools to have netstat available everywhere
+
 * Thu Jan 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 3-2
 - Switch to noarch packages
 - Added additional metadata
