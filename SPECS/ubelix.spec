@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   8
+Version:   9
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -42,6 +42,8 @@ Summary:   Installation of packages UBELIX users need on submit nodes only.
 #
 # Shells
 Requires:   xorg-x11-xauth
+# Tools
+Requires:   tmux
 
 %description -n ubelix-submit
 Packages this package is depending are relevant for submit nodes only.
@@ -68,7 +70,6 @@ Summary:   Installation of packages UBELIX users requested to be present on subm
 Requires:   tcsh
 Requires:   zsh
 # Tools
-Requires:   tmux
 #Requires:  aspell aspell-en atlas atlas-devel
 #Requires:  bzr git mercurial subversion
 # Libraries
@@ -95,6 +96,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Wed Jun 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 9-1
+- Move tmux to the list for submit nodes 
+
 * Wed Jun 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 8-1
 - Add tmux to the list of userwishes
 
