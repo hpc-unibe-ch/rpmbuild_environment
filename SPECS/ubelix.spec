@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   9
+Version:   13
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -15,12 +15,17 @@ URL:       https://ubelix.unibe.ch/
 
 Requires:  bash-completion
 Requires:  bind-utils
+Requires:  blktrace
 Requires:  dstat
 Requires:  iotop
 Requires:  kernel-devel
+Requires:  lsof
 Requires:  net-tools
 Requires:  openssl-devel
 Requires:  psmisc
+Requires:  screen
+Requires:  sysstat
+Requires:  telnet
 Requires:  vim
 Requires:  wget
 
@@ -67,13 +72,15 @@ Summary:   Installation of packages UBELIX users requested to be present on subm
 # Only put stuff that is present in CentOS or EPEL
 #
 # Shells
-Requires:   tcsh
-Requires:   zsh
+Requires:  tcsh
+Requires:  zsh
 # Tools
 #Requires:  aspell aspell-en atlas atlas-devel
 #Requires:  bzr git mercurial subversion
+Requires:  gnuplot
+Requires:  nano
 # Libraries
-Requires:   libX11-devel
+Requires:  libX11-devel
 # Scientific software
 #Requires:  boost boost-date-time boost-devel boost-filesystem boost-graph
 #Requires:  boost-iostreams boost-math boost-program-options boost-python
@@ -81,6 +88,7 @@ Requires:   libX11-devel
 #Requires:  boost-system boost-test boost-thread boost-wave
 # Python stuff
 #Requires:  python-pip
+Requires: python-setuptools
 
 %description -n ubelix-userwishes
 Packages this package is depending are relevant for compute nodes and
@@ -96,6 +104,16 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 12-1
+- Add editor nano
+
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 11-1
+- Added python-setuptools to userwishes and globally some
+  debug tools.
+
+* Thu Jul 5 2018 Michael Rolli <michael.rolli@id.unibe.ch> 10-1
+- Add screen to common
+
 * Wed Jun 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 9-1
 - Move tmux to the list for submit nodes 
 
