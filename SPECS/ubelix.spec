@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   20
+Version:   21
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -20,6 +20,7 @@ Requires:  dstat
 Requires:  iotop
 Requires:  kernel-devel
 Requires:  lsof
+Requires:  mailx
 Requires:  net-tools
 Requires:  openssl-devel
 Requires:  psmisc
@@ -139,6 +140,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 21-1
+- Add mailx to ubelix-common
+
 * Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 20-1
 - Move gdl to ubelix-userwishes
 
