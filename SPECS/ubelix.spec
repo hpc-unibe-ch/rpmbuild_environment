@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   18
+Version:   19
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -50,7 +50,7 @@ Requires:   gedit nedit
 # gtk-murrine-engine is a dependency of Adobe Reader 9.x
 Requires:   gtk-murrine-engine
 # Perl
-Requires:   perl-Digest-MD5
+Requires:   cpan perl-Digest-MD5
 # Qt
 Requires:   qt qt-devel
 # Tools
@@ -144,6 +144,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 19-1
+- Add cpan to ubelix-sedna
+
 * Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 18-1
 - Add GDL to ubelix-submit
 
