@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   13
+Version:   14
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -47,6 +47,8 @@ Summary:   Installation of packages UBELIX users need on submit nodes only.
 #
 # Shells
 Requires:   xorg-x11-xauth
+# Editors
+Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   tmux
 
@@ -104,6 +106,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 14-1
+- Add Emacs (Ticket Andrea Binardi)
+
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 13-1
+- More packages
+
 * Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 12-1
 - Add editor nano
 
