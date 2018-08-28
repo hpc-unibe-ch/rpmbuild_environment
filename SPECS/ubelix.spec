@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   17
+Version:   18
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -87,6 +87,7 @@ Requires:   xorg-x11-xauth
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   bzr git mercurial subversion
+Requires:   gdl
 Requires:   tmux
 Requires:   xpdf
 
@@ -143,6 +144,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 18-1
+- Add GDL to ubelix-submit
+
 * Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 17-1
 - Remove Adobe Reader dependency; add xpdf instead
 
