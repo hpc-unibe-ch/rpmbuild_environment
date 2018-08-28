@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   19
+Version:   20
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -87,7 +87,6 @@ Requires:   xorg-x11-xauth
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   bzr git mercurial subversion
-Requires:   gdl
 Requires:   tmux
 Requires:   xpdf
 
@@ -113,22 +112,18 @@ Summary:   Installation of packages UBELIX users requested to be present on subm
 # Only put stuff that is present in CentOS or EPEL
 #
 # Shells
-Requires:  tcsh
-Requires:  zsh
+Requires:   tcsh
+Requires:   zsh
 # Tools
 #Requires:  aspell aspell-en atlas atlas-devel
-Requires:  gnuplot
-Requires:  nano
+Requires:   gdl
+Requires:   gnuplot
+Requires:   nano
 # Libraries
-Requires:  libX11-devel
-# Scientific software
-#Requires:  boost boost-date-time boost-devel boost-filesystem boost-graph
-#Requires:  boost-iostreams boost-math boost-program-options boost-python
-#Requires:  boost-regex boost-serialization boost-signals boost-system
-#Requires:  boost-system boost-test boost-thread boost-wave
+Requires:   libX11-devel
 # Python stuff
 #Requires:  python-pip
-Requires: python-setuptools
+Requires:   python-setuptools
 
 %description -n ubelix-userwishes
 Packages this package is depending are relevant for compute nodes and
@@ -144,6 +139,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 20-1
+- Move gdl to ubelix-userwishes
+
 * Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 19-1
 - Add cpan to ubelix-sedna
 
