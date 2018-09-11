@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   21
+Version:   23
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -51,13 +51,14 @@ Requires:   gedit nedit
 # gtk-murrine-engine is a dependency of Adobe Reader 9.x
 Requires:   gtk-murrine-engine
 # Perl
-Requires:   cpan perl-Digest-MD5
+Requires:   cpan perl-Digest-MD5 perl-Tk perl-libwww-perl
 # Qt
 Requires:   qt qt-devel
 # Tools
-Requires:   cvs
+Requires:   cvs tkcvs
 Requires:   firefox mc
-Requires:   gv tcl tk
+Requires:   ncompress gv tcl tk xterm
+Requires:   plplot plplot-devel plplot-fortran-devel
 Requires:   ImageMagick
 
 %description -n ubelix-sedna
@@ -88,6 +89,7 @@ Requires:   xorg-x11-xauth
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   bzr git mercurial subversion
+Requires:   ftp
 Requires:   tmux
 Requires:   xpdf
 
@@ -120,6 +122,7 @@ Requires:   zsh
 Requires:   gdl
 Requires:   gnuplot
 Requires:   nano
+Requires:   perf
 # Libraries
 Requires:   libX11-devel
 # Python stuff
@@ -140,6 +143,14 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Sep 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 23-1
+- Add perf t ubelix-userwishes
+
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 22-1
+- Add packages tkcvs, ncompress, perl-libwww-perl, perl-Tk (sedna)
+- ADd plplot, plplot-devel, plplot-fortran-devel (sedna)
+- Add ftp (submit)
+
 * Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 21-1
 - Add mailx to ubelix-common
 
