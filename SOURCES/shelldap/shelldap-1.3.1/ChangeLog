@@ -1,0 +1,511 @@
+2015-03-04  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgsigs:
+	Added signature for changeset ac3c6d1057d5
+	[377bd38ab38c] [tip]
+
+2015-03-04  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* .hgtags:
+	Added tag v1.3.1 for changeset 7b7810fee305
+	[ac3c6d1057d5]
+
+	* shelldap:
+	Bump version and copyright.
+	[7b7810fee305] [v1.3.1]
+
+2014-12-16  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Use the system tempdir instead of hardcoding /tmp.
+	[589332cac30b]
+
+2014-12-04  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgsigs:
+	Added signature for changeset ceb8bd75e05b
+	[39012216a450]
+
+	* .hgtags:
+	Added tag v1.3.0 for changeset b3b840a4b56c
+	[ceb8bd75e05b]
+
+	* shelldap:
+	Minor style cleanups, version bump.
+	[b3b840a4b56c] [v1.3.0]
+
+2014-12-03  Dennis Kaarsemaker  <dennis.kaarsemaker@booking.com>
+
+	* shelldap:
+	Add a 'less' command, that does the same as cat, but uses a pager.
+
+	To avoid code duplication, refactor run_cat to be a thin wrapper
+	around a common function called by both run_cat and run_less.
+	[39e9f802eb40]
+
+2014-08-11  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgtags, shelldap:
+	Branch merge.
+	[b5adcd83b152]
+
+	* .hgsigs:
+	Added signature for changeset b220dc774937
+	[feb78b7417ee]
+
+	* .hgtags:
+	Added tag 1.2.0 for changeset 1a480ba231b6
+	[b220dc774937]
+
+2014-08-11  Dennis Kaarsemaker  <dennis.kaarsemaker@booking.com>
+
+	* CONTRIBUTORS, shelldap:
+	Explicitly disable wrapping when writing to file, leaving it up to
+	the user's editor. No reason to have shelldap and editor wrap
+	battles. Dennis Kaarsemaker <dennis.kaarsemaker@booking.com>
+	[1a480ba231b6] [1.2.0]
+
+2014-08-11  Mahlon E. Smith  <mahlon@laika.com>
+
+	* CONTRIBUTORS, shelldap:
+	Add 'rm' for a fully qualified DN, instead of only working with RDN.
+	Reported by Lars Tauber <taeuber@bbaw.de>.
+	[86e3374a40a3]
+
+2014-06-23  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Fix the pod so it can build without complaint under perl 5.20, bump
+	to v1.1.1. Patch from Kurt Jaeger <pi@FreeBSD.org>.
+	[5a0c99ca0c0d]
+
+2014-06-21  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* .hgtags:
+	Added tag 1.1.0 for changeset e1728adb2561
+	[d8387a513f2c]
+
+	* shelldap:
+	Bump version.
+	[e1728adb2561] [1.1.0]
+
+2013-12-03  Mahlon E. Smith  <mahlon@laika.com>
+
+	* CONTRIBUTORS:
+	Add CONTRIBUTORS file.
+	[f1ca808f165e]
+
+	* shelldap:
+	Add quick documentation blurb for SASL mechanisms. Make SASL
+	dependency optional.
+	[ed8253b3105a]
+
+	* shelldap:
+	Add simple SASL support. Patch from Michael Raitza <spacefrogg-
+	devel@meterriblecrew.net>.
+	[e3bd30b95695]
+
+	* shelldap:
+	Fix the DN regexp to include dashes. Patch from Mike Hix
+	<m@hix.io>.
+	[f90f7ff0b146]
+
+2013-05-15  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgtags:
+	Added tag 1.0.2 for changeset 94b64bbf93cf
+	[5b122351067c]
+
+	* shelldap:
+	Automatically use ldif syntax highlighting for editors that
+	understand LDIF. (rickh_shelldap@printstring.com)
+	[94b64bbf93cf] [1.0.2]
+
+2013-05-03  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Catch a case where the LDAP object is defined, but in a state that
+	schema/root_dse are not obtainable. Add the connected server to
+	'id/whoami' output.
+	[85cc85d0c1b1]
+
+2013-04-26  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Fix another LCS edge case that rev #0cc20d93ff50 introduced.
+	[32e313d5d2d2]
+
+2013-04-18  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* .hgtags:
+	Added tag 1.0.1 for changeset 0cc20d93ff50
+	[d7392bebb86c]
+
+2013-04-18  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Fix for edge case Diff::LCS traversals. Also ensure re-edit state
+	is cleared in between attempts.
+	[0cc20d93ff50] [1.0.1]
+
+2013-03-19  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgsigs:
+	Added signature for changeset 5de7014b0e60
+	[ae62c24653ef]
+
+	* .hgtags:
+	Added tag 1.0.0 for changeset 27bbe75233a3
+	[5de7014b0e60]
+
+	* shelldap:
+	Add the "inspect" command, which provides some quick reference for
+	server schema objectClasses and attributes.
+	[27bbe75233a3] [1.0.0]
+
+2013-03-15  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Numerous changes:
+
+	 - Add a command line option (-f) to specify an alternate
+	configuration file.
+	 - Whitespace and comment cleanup.
+	 - Allow setting the $editor from the config file.
+	 - Break out the fetching of valid must/may attributes for an object
+	class into a separate function
+	 - Offer to re-enter the editor if there is an error during create or
+	edit, so changes aren't lost. Thanks to Alexander Perlis
+	<aperlis@math.lsu.edu> for the suggestion.
+	 - Wrap the passwd command with connection retry.
+	 - Change the version number to reflect semantic versioning
+	(http://semver.org), in preparation of the 1.0.0 release.
+	[21ba5eb5c2fc]
+
+	* shelldap:
+	Alter the default wrap width for LDIF to expand to the terminal
+	size, with an optional rc file override.
+	[57df728cdb77]
+
+	* shelldap:
+	More robust path for connection retries. Show optional, unused
+	attributes as comments in the editor.
+	[fe27dfe5179e]
+
+2013-01-13  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* Makefile:
+	Fix the gmake variable that snags the current version number.
+	[bf9d6fa1b1d4]
+
+2013-01-10  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Fix the uninitialized $path value errors I erroneously introduced on
+	'cd' without an argument.
+	[f0616455056d]
+
+2013-01-08  Mahlon E. Smith  <mahlon@laika.com>
+
+	* .hgtags:
+	Added tag 0.7 for changeset 4e77e8e5d467
+	[173de72687b2]
+
+	* shelldap:
+	Bump to v0.7.
+	[4e77e8e5d467] [0.7]
+
+	* shelldap:
+	Attempt to retry the operation on failure. Less-than-optimal
+	behavior reported by Alexander Perlis <aperlis@math.lsu.edu>.
+	[b8836c9018fb]
+
+2012-11-27  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Add a flag to force a password prompt, so you can override
+	credentials from your cached shelldap.rc.
+	[b8c6d4e8f828]
+
+2012-10-10  Salvatore Bonaccorso  <carnil@debian.org>
+
+	* shelldap:
+	Take only second argument for run_{cd,edit,mkdir}
+
+	Make the behaviour of cd, edit and mkdir similar to cat and
+	delete/rm and fail if some RDN's in the argument contain spaces
+	without beeing quoted.
+	--- shelldap | 6 +++--- 1 file changed, 3 insertions(+), 3
+	deletions(-)
+	[3e7c107f8b93]
+
+2011-09-12  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Fix bug introduced in rev:a3a710f720dd with passwd arguments.
+	[c6a3abc56c74]
+
+2011-09-06  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* .hgtags:
+	Added tag 0.5 for changeset 12f279ef4f9d
+	[bc105b22eb0f]
+
+	* shelldap:
+	Backout the additional objectClasses patch for mkdir: same behavior
+	can be acheived with 'touch', less complex to leave it as is.
+	[12f279ef4f9d] [0.5]
+
+	* shelldap:
+	Add a --version flag.
+	[7a8855e7cfb8]
+
+	* shelldap:
+	Small documentation fixes, add better verbosity when saving
+	connection cache data.
+	[2e78218b8045]
+
+	* shelldap:
+	Make sure the hasSubordinates attribute is defined before checking
+	its value.
+	[3e5572aeee55]
+
+	* shelldap:
+	fix 'ls -R' output, minor style cleanup
+	[40c3719c87d4]
+
+	* shelldap:
+	Repair broken path behavior, remove unneeded #path_to_dn 'relative'
+	flag.
+	[057fefab56b0]
+
+2011-03-06  Peter Marschall  <peter@adpm.de>
+
+	* shelldap:
+	[PATCH 19/19] remove rdn_to_dn() after its last users are gone
+
+	From 892013debac0aef9937ecfbf2c8aab72c88e07cc Mon Sep 17 00:00:00
+	2001
+
+	Signed-off-by: Peter Marschall <peter@adpm.de>
+	--- shelldap | 21 --------------------- 1 files changed, 0
+	insertions(+), 21 deletions(-)
+	[95dbffcc757b]
+
+	* shelldap:
+	run_cat: convert to using path_to_dn() run_edit: convert to using
+	path_to_dn() run_copy & run_move: convert to using path_to_dn()
+	run_grep: convert to using path_to_dn() run_passwd: convert to using
+	path_to_dn()
+	[a3a710f720dd]
+
+	* shelldap:
+	add method path_to_dn() to convert a given "path" to a DN
+
+	path_to_dn() replaces the occurrences of '~', '.' and '..' in a path
+	given and returns a DN. However, it does not check whether the DN is
+	valid. Especially:
+	- on return it is not guaranteed that the DN exists
+	- on return the first part does not need to be a valid RDN
+	[e4b4b0968107]
+
+	* shelldap:
+	mkdir: support more objectclasses
+
+	Depending on the naming attribute given, support the objectclasses
+	'country' and 'organization' in addition to the default
+	'organizationalUnit'.
+	[bd95c3aea253]
+
+2011-03-05  Peter Marschall  <peter@adpm.de>
+
+	* shelldap:
+	make_filter: cope with filters that are already parenthesized
+
+	Treat filter elements correctly that may be more complex filters
+	themselves; e.g. '(&(sn=Doe)(givenname=John))'
+	[d42bd1b087a1]
+
+	* shelldap:
+	run_list: new argument syntax: [<options>] [<filter>] [<attributes>]
+
+	From 232fbd24ff43c9c0d0691cf0e1b51a82ef099489 Mon Sep 17 00:00:00
+	2001 Make run_list work with a properly defined argument syntax:
+	- start with (optional) options: -R -l
+	- continue with filter ['(objectclass=*)' as fallback if none given]
+	- end with attributes (also optional)
+
+	Add method is_valid_filter() to check whether a strig is a legal
+	LDAP filter.
+	[7d170d1bc17b]
+
+	* shelldap:
+	fix attribute lists for LDAP queries
+
+	LDAP does not know of an attribute named 'dn'. To get only the DN in
+	a search, the attriibute list to use is '1.1'. On all other cases,
+	the DN of the entries found is automaticlly part of the result set
+	too.
+	[68318d115f6c]
+
+	* shelldap:
+	remove now unused parent_dn() method
+	[77fd303f1a28]
+
+	* shelldap:
+	cd: flexible treatment of repeated '..', even as prefix
+
+	Treat '..' as any shell does:
+	- while the path given starts with '..', strip away the first
+	element of the current base DN
+	- use ',' as separator
+	- if anything remains in thep ath given, prepend it to the stripped
+	down baseDN
+	- use the result as the new base DN
+	[3a8ae9117981]
+
+2011-09-06  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	small style cleanup
+	[2ab2df609cc7]
+
+2011-03-05  Peter Marschall  <peter@adpm.de>
+
+	* shelldap:
+	base(): make more secure, allow '' as DN
+
+	Only accept DNs as arguments to base that are legal DNs. Convert DN
+	given into canonical form.
+	[8c212bdb221b]
+
+	* shelldap:
+	slight cleanup: make more clear, it's an array
+	[cf8013cbfb58]
+
+	* shelldap:
+	use sane way to get a default basedn: RootDSe's namingContexts
+	[d956658803b8]
+
+2011-09-06  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Add documentation for the additional short flags.
+	[18e71da965ff]
+
+2011-03-05  Peter Marschall  <peter@adpm.de>
+
+	* shelldap:
+	accept short option names for some options
+
+	Accept short name equivalents like in ldap... commands for 'server',
+	'basedn' and 'binddn'.
+	[db47ba64ebda]
+
+	* shelldap:
+	simplify over-complex call of N:L:E->get_value()
+
+	@{ Net::LDAP::Entry->get_value(..., asref => 1) } is equivalent to
+	Net::LDAP::Entry->get_value(...)
+	[669085d93aa3]
+
+	* shelldap:
+	use symbolic LDAP error codes instead of numbers
+	[a2e3faa3d2fc]
+
+2011-09-06  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Exit with a nicer error message if IO::Socket::SSL isn't installed,
+	but the user is requesting SSL/TLS. (this is normally required by
+	Net::LDAP.)
+	[f6157d378459]
+
+2011-03-22  Giacomo Tenaglia  <Giacomo.Tenaglia@cern.ch>
+
+	* shelldap:
+	Allow '-' on RDN name when copying
+	[b8fae8fb7942]
+
+2011-02-21  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* Makefile:
+	Add a quick Makefile to automate future release tarballs.
+	[d7975e514b2a]
+
+2011-02-17  Mahlon E. Smith  <mahlon@laika.com>
+
+	* shelldap:
+	Bump to version 0.4.
+	[d703cba056e3]
+
+	* .hgtags:
+	Added tag 0.4 for changeset 664bbe3dcd44
+	[ba2121c095af]
+
+	* shelldap:
+	Follow regular man page conventions. Patch from Salvatore
+	Bonaccorso <salvatore.bonaccorso@gmail.com>.
+	[664bbe3dcd44] [0.4]
+
+	* shelldap:
+	Minor cleanup.
+	[cb5e528f7ff2]
+
+	* shelldap:
+	Improve performance for cd/ls for containers with a large number of
+	entries. Patch from Yann Cezard <yann.cezard@univ-pau.fr>.
+	[38aaae38427a]
+
+	* .hgtags:
+	Tagging for release 0.3.
+	[44ab209b2a3b]
+
+	* shelldap:
+	Update documentation, now that multiline edits work. Minor other
+	cleanups. Bump version.
+	[46dfe9d6f368] [0.3]
+
+	* shelldap:
+	Combine multiple lines into a single one before displaying LDIF.
+	Patch by Gertjan Halkes <shelldap@ghalkes.nl>.
+	[78b2a48e07db]
+
+2010-07-15  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Append a trailing slash to entries that contain other entries.
+	Thanks to Jonathan Rozes <jonathan@laika.com> for the idea, and
+	Michael Granger <ged@faeriemud.org> for telling me about the
+	hasSubordinates attribute (that he was already using to do exactly
+	this in the Treequel-based ruby shell, heh!)
+	[5a65bc849363]
+
+2010-05-17  Mahlon E. Smith  <mahlon@martini.nu>
+
+	* shelldap:
+	Add options to support ssl key verification when connecting with
+	TLS. Many thanks to Josef Wells <Josefwells@alumni.utexas.net>!
+
+	Small whitespace cleanup.
+
+	Display correct configuration file in error message, if a YAML parse
+	error occurred.
+	[0f815f3daaf7]
+
+2009-07-24  convert-repo  <convert-repo>
+
+	* .hgtags:
+	update tags
+	[35fec0d1acb8]
+
+2008-12-04  mahlon  <mahlon>
+
+	* shelldap:
+	Bumping to 0.2 release.
+	[66ab8df0b6c8] [0.2]
+
+	* shelldap:
+	Restructure for tags/branches.
+	[f7990a76e217]
+

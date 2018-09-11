@@ -1,0 +1,315 @@
+NAME
+    Shelldap - A program for interacting with an LDAP server via a
+    shell-like interface
+
+DESCRIPTION
+    Shelldap /LDAP::Shell is a program for interacting with an LDAP server
+    via a shell-like interface.
+
+    This is not meant to be an exhaustive LDAP editing and browsing
+    interface, but rather an intuitive shell for performing basic LDAP tasks
+    quickly and with minimal effort.
+
+SYNPOSIS
+     shelldap --server example.net [--help]
+
+FEATURES
+     - Upon successful authenticated binding, credential information is
+       auto-cached to ~/.shelldap.rc -- future loads require no command line
+       flags.
+
+     - Custom 'description maps' for entry listings.  (See the 'list' command.)
+
+     - History and autocomplete via readline, if installed.
+
+     - Automatic reconnection attempts if the connection is lost with the
+       LDAP server.
+
+     - Basic schema introspection for quick reference.
+
+     - It feels like a semi-crippled shell, making LDAP browsing and editing
+       at least halfway pleasurable.
+
+OPTIONS
+    All command line options follow getopts long conventions.
+
+        shelldap --server example.net --basedn dc=your,o=company
+
+    You may also optionally create a ~/.shelldap.rc file with command line
+    defaults. This file should be valid YAML. (This file is generated
+    automatically on a successful bind auth.)
+
+    Example:
+
+        server: ldap.example.net
+        binddn: cn=Manager,dc=your,o=company
+        bindpass: xxxxxxxxx
+        basedn: dc=your,o=company
+        tls: yes
+        tls_cacert: /etc/ssl/certs/cacert.pem
+        tls_cert:   ~/.ssl/client.cert.pem 
+        tls_key:    ~/.ssl/private/client.key.pem
+
+    configfile
+        Optional. Use an alternate configuration file, instead of the
+        default ~/.shelldap.rc.
+
+            --configfile /tmp/alternate-config.yml
+            -f /tmp/alternate-config.yml
+
+        This config file overrides values found in the default config, so
+        you can easily have separate config files for connecting to your
+        cn=monitor or cn=log overlays (for example.)
+
+    server
+        Required. The LDAP server to connect to. This can be a hostname, IP
+        address, or a URI.
+
+            --server ldaps://ldap.example.net
+            -H ldaps://ldap.example.net
+
+    binddn
+        The full dn of a user to authenticate as. If not specified, defaults
+        to an anonymous bind. You will be prompted for a password.
+
+            --binddn cn=Manager,dc=your,o=company
+            -D cn=Manager,dc=your,o=company
+
+    basedn
+        The directory 'root' of your LDAP server. If omitted, shelldap will
+        try and ask the server for a sane default.
+
+            --basedn dc=your,o=company
+            -b dc=your,o=company
+
+    promptpass
+        Force password prompting. Useful to temporarily override cached
+        credentials.
+
+    sasl
+        A space separated list of SASL mechanisms. Requires the Authen::SASL
+        module.
+
+            --sasl "PLAIN CRAM-MD5 GSSAPI"
+
+    tls Enables TLS over what would normally be an insecure connection.
+        Requires server side support.
+
+    tls_cacert
+        Specify CA Certificate to trust.
+
+            --tls_cacert /etc/ssl/certs/cacert.pem
+
+    tls_cert
+        The TLS client certificate.
+
+            --tls_cert ~/.ssl/client.cert.pem
+
+    tls_key
+        The TLS client key. Not specifying a key will connect via TLS
+        without key verification.
+
+            --tls_key ~/.ssl/private/client.key.pem
+
+    cacheage
+        Set the time to cache directory lookups in seconds.
+
+        By default, directory lookups are cached for 300 seconds, to speed
+        autocomplete up when changing between different basedns.
+
+        Modifications to the directory automatically reset the cache.
+        Directory listings are not cached. (This is just used for
+        autocomplete.) Set it to 0 to disable caching completely.
+
+    timeout
+        Set the maximum time an LDAP operation can take before it is
+        cancelled.
+
+    debug
+        Print extra operational info out, and backtrace on fatal error.
+
+    version
+        Display the version number.
+
+SHELL COMMANDS
+     cat
+        Display an LDIF dump of an entry. Globbing is supported. Specify
+        either the full dn, or an rdn. For most commands, rdns are local to
+        the current search base. ('cwd', as translated to shell speak.) You
+        may additionally add a list of attributes to display. Use '+' for
+        server side attributes.
+
+            cat uid=mahlon
+            cat ou=*
+            cat uid=mahlon,ou=People,dc=example,o=company
+            cat uid=mahlon + userPassword
+
+     less
+        Like cat, but uses the configured pager to display output.
+
+     cd
+        Change directory. Translated to LDAP, this changes the current
+        basedn. All commands after a 'cd' operate within the new basedn.
+
+            cd                  change to 'home' basedn
+            cd ~                change to the binddn, or basedn if anonymously bound
+            cd -                change to previous node
+            cd ou=People        change to explicit path below current node
+            cd ..               change to parent node
+            cd ../../ou=Groups  change to node ou=Groups, which is a sibling
+                                to the current node's grandparent
+
+        Since LDAP doesn't actually limit what can be a container object,
+        you can actually cd into any entry. Many commands then work on '.',
+        meaning "wherever I currently am."
+
+            cd uid=mahlon
+            cat .
+
+    clear
+        Clear the screen.
+
+    copy
+        Copy an entry to a different dn path. All copies are relative to the
+        current basedn, unless a full dn is specified. All attributes are
+        copied, then an LDAP moddn() is performed.
+
+            copy uid=mahlon uid=bob
+            copy uid=mahlon ou=Others,dc=example,o=company
+            copy uid=mahlon,ou=People,dc=example,o=company uid=mahlon,ou=Others,dc=example,o=company
+
+        aliased to: cp
+
+    create
+        Create an entry from scratch. Arguments are space separated
+        objectClass names. Possible objectClasses are derived automatically
+        from the server, and will tab-complete.
+
+        After the classes are specified, an editor will launch. Required
+        attributes are listed first, then optional attributes. Optionals are
+        commented out. After the editor exits, the resulting LDIF is
+        validated and added to the LDAP directory.
+
+            create top person organizationalPerson inetOrgPerson posixAccount
+
+        aliased to: touch
+
+    delete
+        Remove an entry from the directory. Globbing is supported. All
+        deletes are sanity-prompted. The -v flag prints the entries out for
+        review before delete.
+
+            delete uid=mahlon
+            delete uid=ma*
+            rm -v uid=mahlon,ou=People,dc=example,o=company l=office
+
+        aliased to: rm
+
+    edit
+        Edit an entry in an external editor. After the editor exits, the
+        resulting LDIF is sanity checked, and changes are written to the
+        LDAP directory.
+
+            edit uid=mahlon
+
+        aliased to: vi
+
+    env
+         Show values for various runtime variables.
+
+    grep
+        Search for arbitrary LDAP filters, and return matching dn results.
+        The search string must be a valid LDAP filter.
+
+            grep uid=mahlon
+            grep uid=mahlon ou=People
+            grep -r (&(uid=mahlon)(objectClass=*))
+
+         aliased to: search
+
+    inspect
+        View schema information about a given entry, or a list of arbitrary
+        objectClasses, along with the most common flags for the objectClass
+        attributes.
+
+            inspect uid=mahlon
+            inspect posixAccount organizationalUnit
+            inspect _schema
+
+        The output is a list of found objectClasses, their schema heirarchy
+        (up to 'top'), whether or not they are a structural class, and then
+        a merged list of all valid attributes for the given objectClasses.
+        Attributes are marked as either required or optional, and whether
+        they allow multiple values or not.
+
+        If you ask for the special "_schema" object, the raw server schema
+        is dumped to screen.
+
+    list
+        List entries for the current basedn. Globbing is supported.
+
+        aliased to: ls
+
+            ls -l
+            ls -lR uid=mahlon
+            list uid=m*
+
+        In 'long' mode, descriptions are listed as well, if they exist.
+        There are some default 'long listing' mappings for common
+        objectClass types. You can additionally specify your own mappings in
+        your .shelldap.rc, like so:
+
+            ...
+            descmaps:
+                objectClass: attributename
+                posixAccount: gecos
+                posixGroup: gidNumber
+                ipHost: ipHostNumber
+
+    mkdir
+        Creates a new 'organizationalUnit' entry.
+
+            mkdir containername
+            mkdir ou=whatever
+
+    move
+        Move an entry to a different dn path. Usage is identical to copy.
+
+        aliased to: mv
+
+    passwd
+        If supported server side, change the password for a specified entry.
+        The entry must have a 'userPassword' attribute.
+
+            passwd uid=mahlon
+
+     pwd
+        Print the 'working directory' - aka, the current ldap basedn.
+
+    setenv
+        Modify various runtime variables normally set from the command line.
+
+            setenv debug 1
+            export debug=1
+
+    whoami
+        Show current auth credentials. Unless you specified a binddn, this
+        will just show an anonymous bind.
+
+        aliased to: id
+
+TODO
+    Referral support. Currently, if you try to write to a replicant slave,
+    you'll just get a referral. It would be nice if shelldap automatically
+    tried to follow it.
+
+    For now, it only makes sense to connect to a master if you plan on doing
+    any writes.
+
+BUGS / LIMITATIONS
+    There is no support for editing binary data. If you need to edit base64
+    stuff, just feed it to the regular ldapmodify/ldapadd/etc tools.
+
+AUTHOR
+    Mahlon E. Smith <mahlon@martini.nu>
+

@@ -15,5 +15,9 @@
 # Must be turned off for certain builds.
 %__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
 
+# Turn off the default behavior of add "Requires" data to the RPM
+# By turning that off, you instead trust the information in the META.yml to be correct.
+#%__perl_requires %{nil}
+
 # Package signing is done by user root
 # on the mirror server aka gridadmin01x

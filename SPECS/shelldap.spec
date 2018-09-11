@@ -1,45 +1,49 @@
-%define         debug_package %{nil}
-%define         __arch_install_post   %{nil}
-
 Name:		shelldap
-Version:	1.3.1
+Version:	1.4.0
 Release:	3%{?dist}
-Summary:	Shell-like interface to LDAP servers
+Summary:	A shell-like interface for browsing LDAP servers
+
 License:	BSD
-URL:		http://projects.martini.nu/shelldap
-Group:          Productivity/Networking/LDAP/Clients
-Source0:	%{name}-%{version}.tar.gz
-BuildArch:	noarch
-Requires:       perl(Term::ReadLine::Gnu)
+URL:		https://bitbucket.org/mahlon/%{name}
+Source0:	%{url}/downloads/%{name}-%{version}.tar.gz
+
+BuildArch: noarch
+BuildRequires:	perl-generators perl-interpreter perl(Config) perl-podlators
+# perl-generators takes care of the 'Requires' tag.
+Requires:       perl(YAML::Syck) perl(Term::Shell) perl(Digest::MD5) perl(Net::LDAP) perl(Algorithm::Diff)
+Requires:	perl(IO::Socket::SSL) perl(Authen::SASL) perl(Term::ReadLine::Gnu)
 
 %description
 A handy shell-like interface for browsing LDAP servers and editing their
-content. It keeps command history, has sane autocompletes, credential caching,
-site-wide and individual configs, and it's fun to say. Shelldap! Shelldap!
-Shelldap!
+content. It keeps command history, has sane auto-completion, credential caching,
+site-wide and individual configurations.
 
 %prep
-%setup
+%setup -q
+perl -MConfig -i -pe 's{^#!/usr/bin/env perl}{$Config{startperl}}' %{name}
 
 %build
-pod2man shelldap shelldap.1
+pod2man shelldap > shelldap.1
+perl -n -e 'if(m/^#/){print if($. > 4)}else{exit 0}' shelldap > LICENSE.txt
 
 %install
-install -d -m 755 %{buildroot}%{_bindir}
-install -d -m 755 %{buildroot}%{_mandir}/man1
-install -m 755 shelldap %{buildroot}%{_bindir}
-install -m 644 shelldap.1 %{buildroot}%{_mandir}/man1
-
-%clean
-rm -rf %{buildroot}
+mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_mandir}/man1
+install -p -m 755 shelldap %{buildroot}%{_bindir}/shelldap
+install -p -m 644 shelldap.1 %{buildroot}%{_mandir}/man1/shelldap.1
 
 %files
-%defattr(755,root,root,-)
+%license LICENSE.txt
+%doc README.md CHANGELOG CONTRIBUTORS
 %{_bindir}/shelldap
-%defattr(644,root,root,-)
-%{_mandir}/man1/shelldap.1*
+%{_mandir}/man1/shelldap.1.*
 
 %changelog
-* Wed May 06 2015 Michael Rolli <michael.rolli@id.unibe.ch> - 1.3.1
-- Initial build from source@377bd38ab38c
+* Wed Aug 29 2018 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 1.4.0-3
+- Rebuilt for http://id-mirror.unibe.ch/mrepo/centos7-x86_64/RPMS.ubelix/repoview/
 
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Tue Feb 27 2018 Timothée Floure <fnux@fedoraproject.org> - 1.4.0-1
+- Let there be package.
