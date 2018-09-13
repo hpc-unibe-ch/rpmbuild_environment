@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   23
+Version:   25
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -127,7 +127,8 @@ Requires:   perf
 Requires:   libX11-devel
 # Python stuff
 #Requires:  python-pip
-Requires:   python-setuptools
+Requires:   python-devel python-setuptools
+Requires:   python34-devel python34-setuptools
 
 %description -n ubelix-userwishes
 Packages this package is depending are relevant for compute nodes and
@@ -143,6 +144,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Thu Sep 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 25-1
+- Fix python34-devel
+
+* Thu Sep 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 24-1
+- Add python-devl, python34-devel and python34-setuptools
+
 * Tue Sep 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 23-1
 - Add perf t ubelix-userwishes
 
