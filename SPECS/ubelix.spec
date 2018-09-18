@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   25
+Version:   26
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -125,6 +125,7 @@ Requires:   nano
 Requires:   perf
 # Libraries
 Requires:   libX11-devel
+Requires:   xalan-c xerces-c
 # Python stuff
 #Requires:  python-pip
 Requires:   python-devel python-setuptools
@@ -144,6 +145,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Sep 18 2018 Michael Rolli <michael.rolli@id.unibe.ch> 26-1
+- Add xalan-c and xerces-c to ubelix-userwishes
+
 * Thu Sep 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 25-1
 - Fix python34-devel
 
