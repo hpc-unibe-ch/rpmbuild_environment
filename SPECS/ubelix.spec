@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   26
+Version:   27
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -123,6 +123,7 @@ Requires:   gdl
 Requires:   gnuplot
 Requires:   nano
 Requires:   perf
+Requires:   dos2unix
 # Libraries
 Requires:   libX11-devel
 Requires:   xalan-c xerces-c
@@ -145,6 +146,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Thu Oct 11 2018 Nico Färber <nico.faerber@id.unibe.ch> 27-1
+- Add dos2unix to ubelix-userwishes
+
 * Tue Sep 18 2018 Michael Rolli <michael.rolli@id.unibe.ch> 26-1
 - Add xalan-c and xerces-c to ubelix-userwishes
 
