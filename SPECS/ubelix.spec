@@ -2,13 +2,13 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   27
+Version:   28
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
 Group:     System Environment/Base
 BuildArch: noarch
-Vendor:    IT Services Department, University of Bern
+Vendor:    IT Services Office, University of Bern
 Packager:  grid-admin@id.unibe.ch
 License:   Apache 2.0
 URL:       https://ubelix.unibe.ch/
@@ -89,7 +89,7 @@ Requires:   xorg-x11-xauth
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   bzr git mercurial subversion
-Requires:   ftp
+Requires:   ftp lftp
 Requires:   tmux
 Requires:   xpdf
 
@@ -146,6 +146,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Oct 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 28-1
+- Add lftp to submit
+
 * Thu Oct 11 2018 Nico Färber <nico.faerber@id.unibe.ch> 27-1
 - Add dos2unix to ubelix-userwishes
 
