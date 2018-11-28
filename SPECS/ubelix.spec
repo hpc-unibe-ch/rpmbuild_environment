@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   28
+Version:   29
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -88,6 +88,7 @@ Requires:   xorg-x11-xauth
 # Editors
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
+Requires:   cifs-utils samba-client
 Requires:   bzr git mercurial subversion
 Requires:   ftp lftp
 Requires:   tmux
@@ -146,6 +147,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Nov 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 29-1
+- Add cifs-utils and samba-clientto submit
+
 * Tue Oct 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 28-1
 - Add lftp to submit
 
