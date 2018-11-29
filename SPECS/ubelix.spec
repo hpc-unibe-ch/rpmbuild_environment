@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   29
+Version:   30
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -13,6 +13,7 @@ Packager:  grid-admin@id.unibe.ch
 License:   Apache 2.0
 URL:       https://ubelix.unibe.ch/
 
+Requires:  at
 Requires:  bash-completion
 Requires:  bind-utils
 Requires:  blktrace
@@ -24,9 +25,11 @@ Requires:  mailx
 Requires:  net-tools
 Requires:  openssl-devel
 Requires:  psmisc
+Requires:  redhat-lsb-core
 Requires:  screen
 Requires:  sysstat
 Requires:  telnet
+Requires:  time
 Requires:  vim
 Requires:  wget
 
@@ -147,6 +150,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Nov 29 2018 Michael Rolli <michael.rolli@id.unibe.ch> 30-1
+- Add at, redhat-lsb-core, time to the list of common packages
+
 * Tue Nov 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 29-1
 - Add cifs-utils and samba-clientto submit
 
