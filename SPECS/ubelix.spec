@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   30
+Version:   32
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -128,8 +128,13 @@ Requires:   gnuplot
 Requires:   nano
 Requires:   perf
 Requires:   dos2unix
-# Libraries
+# X Window Server related
 Requires:   libX11-devel
+Requires:   xorg-x11-xauth
+Requires:   xterm
+# The following is needed by Matlab
+Requires:   libXScrnSaver
+# Libraries
 Requires:   xalan-c xerces-c
 # Python stuff
 #Requires:  python-pip
@@ -150,6 +155,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 32-1
+- Add libXScrnSaver to userwishes as it is needed by Matlab
+
+* Tue Nov 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 31-1
+- Add xterm and xorg-x11-xauth to the userwishes
+
 * Tue Nov 29 2018 Michael Rolli <michael.rolli@id.unibe.ch> 30-1
 - Add at, redhat-lsb-core, time to the list of common packages
 
