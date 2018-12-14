@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   32
+Version:   33
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -132,8 +132,8 @@ Requires:   dos2unix
 Requires:   libX11-devel
 Requires:   xorg-x11-xauth
 Requires:   xterm
-# The following is needed by Matlab
-Requires:   libXScrnSaver
+# The following libs are needed by Matlab
+Requires:   libXScrnSaver libXtst
 # Libraries
 Requires:   xalan-c xerces-c
 # Python stuff
@@ -155,6 +155,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 33-1
+- Add another library for Matlab: libXtst
+
 * Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 32-1
 - Add libXScrnSaver to userwishes as it is needed by Matlab
 
