@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   33
+Version:   35
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -88,14 +88,10 @@ Summary:   Installation of packages UBELIX users need on submit nodes only.
 #
 # Shells
 Requires:   xorg-x11-xauth
-# Editors
-Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 Requires:   cifs-utils samba-client
-Requires:   bzr git mercurial subversion
 Requires:   ftp lftp
 Requires:   tmux
-Requires:   xpdf
 
 %description -n ubelix-submit
 Packages this package is depending are relevant for submit nodes only.
@@ -121,13 +117,17 @@ Summary:   Installation of packages UBELIX users requested to be present on subm
 # Shells
 Requires:   tcsh
 Requires:   zsh
+# Editors
+Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
 #Requires:  aspell aspell-en atlas atlas-devel
+Requires:   cvs bzr git mercurial subversion
 Requires:   gdl
 Requires:   gnuplot
 Requires:   nano
 Requires:   perf
 Requires:   dos2unix
+Requires:   xpdf
 # X Window Server related
 Requires:   libX11-devel
 Requires:   xorg-x11-xauth
@@ -155,6 +155,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Wed Jan 16 2019 Michael Rolli <michael.rolli@id.unibe.ch> 35-1
+- Add CVS to the userwishes
+
+* Tue Jan 15 2019 Michael Rolli <michael.rolli@id.unibe.ch> 34-1
+- Move some packages from submit to userwishes
+
 * Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 33-1
 - Add another library for Matlab: libXtst
 
