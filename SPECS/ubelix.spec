@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   35
+Version:   36
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -130,6 +130,7 @@ Requires:   dos2unix
 Requires:   xpdf
 # X Window Server related
 Requires:   libX11-devel
+Requires:   mesa-libGLU
 Requires:   xorg-x11-xauth
 Requires:   xterm
 # The following libs are needed by Matlab
@@ -155,6 +156,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Mar 19 2019 Michael Rolli <michael.rolli@id.unibe.ch> 36-1
+- Add mesa-libGLU to the userwishes; req by dm18i266
+
 * Wed Jan 16 2019 Michael Rolli <michael.rolli@id.unibe.ch> 35-1
 - Add CVS to the userwishes
 
