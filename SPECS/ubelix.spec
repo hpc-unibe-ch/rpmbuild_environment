@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   36
+Version:   37
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -136,6 +136,7 @@ Requires:   xterm
 # The following libs are needed by Matlab
 Requires:   libXScrnSaver libXtst
 # Libraries
+Requires:   glibc-static
 Requires:   xalan-c xerces-c
 # Python stuff
 #Requires:  python-pip
@@ -156,6 +157,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue May 28 2019 Michael Rolli <michael.rolli@id.unibe.ch> 37-1
+- Add glibc-static to the user wishes, req by user
+
 * Tue Mar 19 2019 Michael Rolli <michael.rolli@id.unibe.ch> 36-1
 - Add mesa-libGLU to the userwishes; req by dm18i266
 
