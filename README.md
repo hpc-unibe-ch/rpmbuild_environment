@@ -3,6 +3,6 @@
 ## Installation
 
     cd ~/
-    git clone https://<username>@idstash rpmbuild
+    git clone <this-very-clone-URL-above>
     ln -s rpmbuild/.rpmmacros
 
