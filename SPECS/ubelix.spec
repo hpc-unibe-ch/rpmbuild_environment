@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   37
+Version:   38
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -137,6 +137,7 @@ Requires:   xterm
 Requires:   libXScrnSaver libXtst
 # Libraries
 Requires:   glibc-static
+Requires:   compat-libstdc++-33
 Requires:   xalan-c xerces-c
 # Python stuff
 #Requires:  python-pip
@@ -157,6 +158,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Jan 23 2020 Michael Rolli <michael.rolli@id.unibe.ch> 38-1
+- Add compat-libstdc++-33 to the user wishes, req by ariza
+
 * Tue May 28 2019 Michael Rolli <michael.rolli@id.unibe.ch> 37-1
 - Add glibc-static to the user wishes, req by user
 
