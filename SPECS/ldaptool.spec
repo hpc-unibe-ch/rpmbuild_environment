@@ -1,7 +1,7 @@
 %define name ldaptool
-%define version 0.1
-%define unmangled_version 0.1
-%define release 2
+%define version 0.2
+%define unmangled_version 0.2
+%define release 1
 
 Summary: Tool for manipulating LDAP databases
 Name: %{name}
@@ -14,8 +14,7 @@ Group: Development/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Prefix: %{_prefix}
 BuildArch: noarch
-Vendor: Philipp Bunge <buge@crimson.ch>
-Url: http://www.ox9.org/projects/ldaptool/
+Vendor: HPC-Team UniBE <hpc-admin@id.unibe.ch>
 
 %description
 UNKNOWN
@@ -36,6 +35,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Thu Jun 11 2020 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 0.2-1
+- Add protocol support for ldap+tls://
+
 * Tue Oct 17 2017 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 0.1-2
 - Rebuild for CentOS 7
 
