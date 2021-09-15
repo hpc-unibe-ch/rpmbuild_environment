@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   38
+Version:   40
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -18,6 +18,7 @@ Requires:  bash-completion
 Requires:  bind-utils
 Requires:  blktrace
 Requires:  dstat
+Requires:  htop
 Requires:  iotop
 Requires:  kernel-devel
 Requires:  lsof
@@ -127,6 +128,7 @@ Requires:   gnuplot
 Requires:   nano
 Requires:   perf
 Requires:   dos2unix
+Requires:   pbzip2
 Requires:   xpdf
 # X Window Server related
 Requires:   libX11-devel
@@ -139,6 +141,7 @@ Requires:   libXScrnSaver libXtst
 Requires:   glibc-static
 Requires:   compat-libstdc++-33
 Requires:   xalan-c xerces-c
+Requires:   libpng12
 # Python stuff
 #Requires:  python-pip
 Requires:   python-devel python-setuptools
@@ -158,6 +161,13 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Fri May 07 2021 Michael Rolli <michael.rolli@unibe.ch> 40-1
+- Add libpng12 to userwishes as it is needed by STATA
+
+* Thu May 06 2021 Michael Rolli <michael.rolli@unibe.ch> 39-1
+- Add htop globally, requested by faerber
+- Add pbzip2 to user wishes, useful in case of berardi
+
 * Tue Jan 23 2020 Michael Rolli <michael.rolli@id.unibe.ch> 38-1
 - Add compat-libstdc++-33 to the user wishes, req by ariza
 
