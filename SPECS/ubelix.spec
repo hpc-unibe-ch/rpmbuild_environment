@@ -2,14 +2,14 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   40
+Version:   41
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
 Group:     System Environment/Base
 BuildArch: noarch
 Vendor:    IT Services Office, University of Bern
-Packager:  grid-admin@id.unibe.ch
+Packager:  hpc-admin@id.unibe.ch
 License:   Apache 2.0
 URL:       https://ubelix.unibe.ch/
 
@@ -91,6 +91,7 @@ Summary:   Installation of packages UBELIX users need on submit nodes only.
 Requires:   xorg-x11-xauth
 # Tools
 Requires:   cifs-utils samba-client
+Requires:   evince
 Requires:   ftp lftp
 Requires:   tmux
 
@@ -161,6 +162,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Tue Jan 25 2022 Michael Rolli <michael.rolli@unibe.ch> 41-1
+- Add evince to the submit packages
+
 * Fri May 07 2021 Michael Rolli <michael.rolli@unibe.ch> 40-1
 - Add libpng12 to userwishes as it is needed by STATA
 
