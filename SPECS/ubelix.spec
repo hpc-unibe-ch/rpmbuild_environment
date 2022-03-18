@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   41
+Version:   42.2
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -91,6 +91,7 @@ Summary:   Installation of packages UBELIX users need on submit nodes only.
 Requires:   xorg-x11-xauth
 # Tools
 Requires:   cifs-utils samba-client
+Requires:   aspell aspell-en
 Requires:   evince
 Requires:   ftp lftp
 Requires:   tmux
@@ -162,6 +163,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Fri Mar 18 2022 Michael Rolli <michael.rolli@unibe.ch> 42-2
+- Addtionally add aspell-en to the submit package
+
+* Thu Mar 17 2022 Michael Rolli <michael.rolli@unibe.ch> 42-1
+- Add aspell to the submit package
+
 * Tue Jan 25 2022 Michael Rolli <michael.rolli@unibe.ch> 41-1
 - Add evince to the submit packages
 
@@ -172,7 +179,7 @@ many packages at once that are used on every (or some hosts).
 - Add htop globally, requested by faerber
 - Add pbzip2 to user wishes, useful in case of berardi
 
-* Tue Jan 23 2020 Michael Rolli <michael.rolli@id.unibe.ch> 38-1
+* Thu Jan 23 2020 Michael Rolli <michael.rolli@id.unibe.ch> 38-1
 - Add compat-libstdc++-33 to the user wishes, req by ariza
 
 * Tue May 28 2019 Michael Rolli <michael.rolli@id.unibe.ch> 37-1
@@ -187,19 +194,19 @@ many packages at once that are used on every (or some hosts).
 * Tue Jan 15 2019 Michael Rolli <michael.rolli@id.unibe.ch> 34-1
 - Move some packages from submit to userwishes
 
-* Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 33-1
+* Fri Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 33-1
 - Add another library for Matlab: libXtst
 
-* Tue Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 32-1
+* Fri Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 32-1
 - Add libXScrnSaver to userwishes as it is needed by Matlab
 
-* Tue Nov 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 31-1
+* Fri Nov 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 31-1
 - Add xterm and xorg-x11-xauth to the userwishes
 
-* Tue Nov 29 2018 Michael Rolli <michael.rolli@id.unibe.ch> 30-1
+* Thu Nov 29 2018 Michael Rolli <michael.rolli@id.unibe.ch> 30-1
 - Add at, redhat-lsb-core, time to the list of common packages
 
-* Tue Nov 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 29-1
+* Wed Nov 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 29-1
 - Add cifs-utils and samba-clientto submit
 
 * Tue Oct 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 28-1
