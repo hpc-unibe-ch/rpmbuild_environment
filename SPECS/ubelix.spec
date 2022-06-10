@@ -9,7 +9,7 @@ Summary:   Install common packages needed on all UBELIX hosts.
 Group:     System Environment/Base
 BuildArch: noarch
 Vendor:    IT Services Office, University of Bern
-Packager:  hpc-admin@id.unibe.ch
+Packager:  hpc-admin.id@unibe.ch
 License:   Apache 2.0
 URL:       https://ubelix.unibe.ch/
 
@@ -179,123 +179,123 @@ many packages at once that are used on every (or some hosts).
 - Add htop globally, requested by faerber
 - Add pbzip2 to user wishes, useful in case of berardi
 
-* Thu Jan 23 2020 Michael Rolli <michael.rolli@id.unibe.ch> 38-1
+* Thu Jan 23 2020 Michael Rolli <michael.rolli@unibe.ch> 38-1
 - Add compat-libstdc++-33 to the user wishes, req by ariza
 
-* Tue May 28 2019 Michael Rolli <michael.rolli@id.unibe.ch> 37-1
+* Tue May 28 2019 Michael Rolli <michael.rolli@unibe.ch> 37-1
 - Add glibc-static to the user wishes, req by user
 
-* Tue Mar 19 2019 Michael Rolli <michael.rolli@id.unibe.ch> 36-1
+* Tue Mar 19 2019 Michael Rolli <michael.rolli@unibe.ch> 36-1
 - Add mesa-libGLU to the userwishes; req by dm18i266
 
-* Wed Jan 16 2019 Michael Rolli <michael.rolli@id.unibe.ch> 35-1
+* Wed Jan 16 2019 Michael Rolli <michael.rolli@unibe.ch> 35-1
 - Add CVS to the userwishes
 
-* Tue Jan 15 2019 Michael Rolli <michael.rolli@id.unibe.ch> 34-1
+* Tue Jan 15 2019 Michael Rolli <michael.rolli@unibe.ch> 34-1
 - Move some packages from submit to userwishes
 
-* Fri Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 33-1
+* Fri Dec 14 2018 Michael Rolli <michael.rolli@unibe.ch> 33-1
 - Add another library for Matlab: libXtst
 
-* Fri Dec 14 2018 Michael Rolli <michael.rolli@id.unibe.ch> 32-1
+* Fri Dec 14 2018 Michael Rolli <michael.rolli@unibe.ch> 32-1
 - Add libXScrnSaver to userwishes as it is needed by Matlab
 
-* Fri Nov 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 31-1
+* Fri Nov 30 2018 Michael Rolli <michael.rolli@unibe.ch> 31-1
 - Add xterm and xorg-x11-xauth to the userwishes
 
-* Thu Nov 29 2018 Michael Rolli <michael.rolli@id.unibe.ch> 30-1
+* Thu Nov 29 2018 Michael Rolli <michael.rolli@unibe.ch> 30-1
 - Add at, redhat-lsb-core, time to the list of common packages
 
-* Wed Nov 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 29-1
+* Wed Nov 28 2018 Michael Rolli <michael.rolli@unibe.ch> 29-1
 - Add cifs-utils and samba-clientto submit
 
-* Tue Oct 30 2018 Michael Rolli <michael.rolli@id.unibe.ch> 28-1
+* Tue Oct 30 2018 Michael Rolli <michael.rolli@unibe.ch> 28-1
 - Add lftp to submit
 
-* Thu Oct 11 2018 Nico Färber <nico.faerber@id.unibe.ch> 27-1
+* Thu Oct 11 2018 Nico Färber <nico.faerber@unibe.ch> 27-1
 - Add dos2unix to ubelix-userwishes
 
-* Tue Sep 18 2018 Michael Rolli <michael.rolli@id.unibe.ch> 26-1
+* Tue Sep 18 2018 Michael Rolli <michael.rolli@unibe.ch> 26-1
 - Add xalan-c and xerces-c to ubelix-userwishes
 
-* Thu Sep 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 25-1
+* Thu Sep 13 2018 Michael Rolli <michael.rolli@unibe.ch> 25-1
 - Fix python34-devel
 
-* Thu Sep 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 24-1
+* Thu Sep 13 2018 Michael Rolli <michael.rolli@unibe.ch> 24-1
 - Add python-devl, python34-devel and python34-setuptools
 
-* Tue Sep 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 23-1
+* Tue Sep 11 2018 Michael Rolli <michael.rolli@unibe.ch> 23-1
 - Add perf t ubelix-userwishes
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 22-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 22-1
 - Add packages tkcvs, ncompress, perl-libwww-perl, perl-Tk (sedna)
 - ADd plplot, plplot-devel, plplot-fortran-devel (sedna)
 - Add ftp (submit)
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 21-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 21-1
 - Add mailx to ubelix-common
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 20-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 20-1
 - Move gdl to ubelix-userwishes
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 19-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 19-1
 - Add cpan to ubelix-sedna
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 18-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 18-1
 - Add GDL to ubelix-submit
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 17-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 17-1
 - Remove Adobe Reader dependency; add xpdf instead
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 16-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 16-1
 - Add missing cvs to ubelix-sedna
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 15-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 15-1
 - ubelix-sedna with user wishes from AIUB
 
-* Tue Aug 28 2018 Michael Rolli <michael.rolli@id.unibe.ch> 14-1
+* Tue Aug 28 2018 Michael Rolli <michael.rolli@unibe.ch> 14-1
 - Add Emacs (Ticket Andrea Binardi)
 
-* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 13-1
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@unibe.ch> 13-1
 - More packages
 
-* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 12-1
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@unibe.ch> 12-1
 - Add editor nano
 
-* Fri Jul 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 11-1
+* Fri Jul 13 2018 Michael Rolli <michael.rolli@unibe.ch> 11-1
 - Added python-setuptools to userwishes and globally some
   debug tools.
 
-* Thu Jul 5 2018 Michael Rolli <michael.rolli@id.unibe.ch> 10-1
+* Thu Jul 5 2018 Michael Rolli <michael.rolli@unibe.ch> 10-1
 - Add screen to common
 
-* Wed Jun 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 9-1
-- Move tmux to the list for submit nodes 
+* Wed Jun 13 2018 Michael Rolli <michael.rolli@unibe.ch> 9-1
+- Move tmux to the list for submit nodes
 
-* Wed Jun 13 2018 Michael Rolli <michael.rolli@id.unibe.ch> 8-1
+* Wed Jun 13 2018 Michael Rolli <michael.rolli@unibe.ch> 8-1
 - Add tmux to the list of userwishes
 
-* Fri Jun 8 2018 Michael Rolli <michael.rolli@id.unibe.ch> 7-1
+* Fri Jun 8 2018 Michael Rolli <michael.rolli@unibe.ch> 7-1
 - New metapackage ubelix-submit for submit nodes
 
-* Fri Jun 8 2018 Michael Rolli <michael.rolli@id.unibe.ch> 6-1
+* Fri Jun 8 2018 Michael Rolli <michael.rolli@unibe.ch> 6-1
 - Add mlocate to generell tools
 - Add libX11-devel to the list of userwishes
 
-* Tue Jun 5 2018 Michael Rolli <michael.rolli@id.unibe.ch> 5-1
+* Tue Jun 5 2018 Michael Rolli <michael.rolli@unibe.ch> 5-1
 - Add tcsh to the list of userwishes
 
-* Tue Feb 27 2018 Michael Rolli <michael.rolli@id.unibe.ch> 4-1
+* Tue Feb 27 2018 Michael Rolli <michael.rolli@unibe.ch> 4-1
 - Add package net-tools to have netstat available everywhere
 
-* Thu Jan 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 3-2
+* Thu Jan 11 2018 Michael Rolli <michael.rolli@unibe.ch> 3-2
 - Switch to noarch packages
 - Added additional metadata
 
-* Thu Jan 11 2018 Michael Rolli <michael.rolli@id.unibe.ch> 3-1
+* Thu Jan 11 2018 Michael Rolli <michael.rolli@unibe.ch> 3-1
 - Restart with only really necessary stuff
 - [user]: zsh | Matthias Lüthi (LHEP)
 
-* Thu Jun 15 2017 Michael Rolli <michael.rolli@id.unibe.ch> 2-1
+* Thu Jun 15 2017 Michael Rolli <michael.rolli@unibe.ch> 2-1
 - Initial RPM release
 

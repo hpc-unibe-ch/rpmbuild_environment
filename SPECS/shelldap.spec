@@ -39,7 +39,7 @@ install -p -m 644 shelldap.1 %{buildroot}%{_mandir}/man1/shelldap.1
 %{_mandir}/man1/shelldap.1.*
 
 %changelog
-* Wed Aug 29 2018 Rolli, Michael (ID) <michael.rolli@id.unibe.ch> - 1.4.0-3
+* Wed Aug 29 2018 Rolli, Michael (ID) <michael.rolli@unibe.ch> - 1.4.0-3
 - Rebuilt for http://id-mirror.unibe.ch/mrepo/centos7-x86_64/RPMS.ubelix/repoview/
 
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.0-2
