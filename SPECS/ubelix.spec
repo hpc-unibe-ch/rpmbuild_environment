@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   42.2
+Version:   43.2
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -59,6 +59,7 @@ Requires:   cpan perl-Digest-MD5 perl-Tk perl-libwww-perl
 # Qt
 Requires:   qt qt-devel
 # Tools
+Requires:   openssh-askpass
 Requires:   cvs tkcvs
 Requires:   firefox mc
 Requires:   ncompress gv tcl tk xterm
@@ -93,6 +94,7 @@ Requires:   xorg-x11-xauth
 Requires:   cifs-utils samba-client
 Requires:   aspell aspell-en
 Requires:   evince
+Requires:   openssh-askpass
 Requires:   ftp lftp
 Requires:   tmux
 
@@ -123,6 +125,7 @@ Requires:   zsh
 # Editors
 Requires:   emacs emacs-git emacs-php-mode emacs-yaml-mode
 # Tools
+Requires:   openssh-askpass
 #Requires:  aspell aspell-en atlas atlas-devel
 Requires:   cvs bzr git mercurial subversion
 Requires:   gdl
@@ -163,6 +166,12 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Fri Aug 26 2022 Matthias Salzmann <matthias.salzmann@unibe.ch> 43-2
+- Add openssh-askpass on computenodes this is needed for jupyter-compute
+
+* Wed Aug 17 2022 Michael Rolli <michael.rolli@unibe.ch> 43-1
+- Add openssh-askpass on login servers and sedna as this is needed for jupyter-compute
+
 * Fri Mar 18 2022 Michael Rolli <michael.rolli@unibe.ch> 42-2
 - Addtionally add aspell-en to the submit package
 
