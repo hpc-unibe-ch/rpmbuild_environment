@@ -2,7 +2,7 @@
 %{!?_rel:%{expand:%%global _rel 1}}
 
 Name:      ubelix-common
-Version:   43.2
+Version:   44.1
 Release:   %{_rel}%{dist}
 Summary:   Install common packages needed on all UBELIX hosts.
 
@@ -147,6 +147,8 @@ Requires:   glibc-static
 Requires:   compat-libstdc++-33
 Requires:   xalan-c xerces-c
 Requires:   libpng12
+# Perl
+Requires:   cpan perl-Digest-MD5 perl-Tk perl-libwww-perl
 # Python stuff
 #Requires:  python-pip
 Requires:   python-devel python-setuptools
@@ -166,6 +168,9 @@ many packages at once that are used on every (or some hosts).
 
 
 %changelog
+* Mon Oct 10 2022 Michael Rolli <michael.rolli@unibe.ch> 44-1
+- Add some perl deps to submits/computes to enable out of the box texlive installation
+
 * Fri Aug 26 2022 Matthias Salzmann <matthias.salzmann@unibe.ch> 43-2
 - Add openssh-askpass on computenodes this is needed for jupyter-compute
 
